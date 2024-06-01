@@ -14,9 +14,9 @@ def load_documents(directory_path):
             raise ValueError(f"Invalid directory path: {directory_path}")
         
         for file in os.listdir(directory_path):
-            print("Name: ", file)
+            # print("Name: ", file)
             file_path = os.path.join(directory_path, file)
-            print("File: ",file_path)
+            # print("File: ",file_path)
             if file.endswith((".pdf", ".docx", ".doc", ".txt", ".csv", ".xlsx", ".xls", ".pptx")):
                 loaders = {
                     ".pdf": PyPDFLoader,
@@ -29,9 +29,9 @@ def load_documents(directory_path):
                     ".pptx": UnstructuredPowerPointLoader
                 }
                 ext = os.path.splitext(file)[-1].lower()
-                print(ext)
+                # print(ext)
                 loader = loaders.get(ext)
-                print(loader)
+                # print(loader)
                 if loader:
                     documents.extend(loader(file_path).load())
     except Exception as e:
